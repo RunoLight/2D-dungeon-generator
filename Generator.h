@@ -5,7 +5,7 @@
 #include <iostream>
 #include <algorithm>
 
-#define RoomPlaceTries 1000
+#define RoomPlaceTries 50
 #define minRoomSize 3
 #define maxRoomSize 7
 #define WALL_SYMBOL '#'
@@ -22,7 +22,7 @@ public:
 
     Room(int _x1, int _y1, int _h, int _w) : x1(_x1), y1(_y1), height(_h), width(_w), x2(_x1 + _w), y2(_y1 + _h)
     {
-        center = std::make_pair(x1 + height / 2, y1 + width / 2);
+        center = std::make_pair(x1 + (width + 1) / 2, y1 + (height + 1) / 2);
         center.first--; center.second--;
     }
 
