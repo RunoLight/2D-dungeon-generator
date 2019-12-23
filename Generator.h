@@ -39,7 +39,7 @@ class Generator
 public:
     static std::vector< std::vector< char >> map;
     
-    static void init(int MAP_HEIGHT, int MAP_WIDTH);
+    static void Generate(int MAP_HEIGHT, int MAP_WIDTH);
 
     static void Corridor(std::pair<int, int> center1, std::pair<int, int> center2);
 

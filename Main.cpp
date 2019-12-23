@@ -5,7 +5,7 @@ using namespace std;
 
 int main()
 {
-    Generator::init(60,30);
+    Generator::Generate(60,30);
 
     Generator::Print();
 

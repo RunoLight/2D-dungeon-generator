@@ -2,7 +2,7 @@
 
 std::vector< std::vector< char >> Generator::map = std::vector< std::vector <char>>(0, std::vector<char>(0));
 
-void Generator::init(int MAP_HEIGHT, int MAP_WIDTH)
+void Generator::Generate(int MAP_HEIGHT, int MAP_WIDTH)
 {
     map = std::vector< std::vector <char>>(MAP_WIDTH, std::vector<char>(MAP_HEIGHT, WALL_SYMBOL));
 }
@@ -70,6 +70,8 @@ void Generator::placeRooms()
 
         //check if new room does not intersects any of already existing rooms
         bool failed = false;
+
+        // UNCOMMENT this if you want rooms not intersects with each other 
         //for (int k = 0; k < rooms.size(); k++)
         //{
         //    if (newRoom.intersects(rooms[k])) {
@@ -77,18 +79,16 @@ void Generator::placeRooms()
         //        break;
         //    }
         //}
+
+
         if (!failed) {
             // carves out room in map
             Generator::createRoom(newRoom);
-
-            Generator::Print();
 
             if (i) //skips first iteration
                 Generator::Corridor(prevCenter, newRoom.center);
 
             prevCenter = newRoom.center;
-
-            Generator::Print();
 
             // push new room into rooms array
             rooms.push_back(newRoom);
